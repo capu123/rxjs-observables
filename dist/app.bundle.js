@@ -57,27 +57,72 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Observables from Arrays
+	/*
+	const numbers = [33,44,55,66,77];
 
-	var numbers = [33, 44, 55, 66, 77];
+	const numbers$ = Rx.Observable.from(numbers);
 
-	var numbers$ = _Rx2.default.Observable.from(numbers);
+	numbers$.subscribe(
+	    v=> {
+	        console.log(v);
+	    },
+	    err=> {
+	        console.log(err);
+	    },
+	    complete=> {
+	        console.log('Completed');
+	    }
+	);
 
-	numbers$.subscribe(function (v) {
+
+	// Observables from complex Arrays
+	const posts = [
+	    {title: 'Post One', body: "This is the body 1"},
+	    {title: 'Post Two', body: "This is the body 2"},
+	    {title: 'Post Three', body: "This is the body 3"}
+	];
+
+	const postOutput = $('#posts');
+
+	const posts$ = Rx.Observable.from(posts);
+	posts$.subscribe(
+	    post=> {
+	        console.log(post);
+	        $('#posts').append('<li><h3>'
+	                            +post.title+
+	                            '</h3><p>'
+	                            +post.body+
+	                            '</p></li>');
+	    },
+	    err=> {
+	        console.log(err);
+	    },
+	    complete=> {
+	        console.log('Completed');
+	    }
+	);
+	*/
+
+	/*
+	const set = new Set(['Hello', 2017, {title: 'My Title'}]);
+	const set$ = Rx.Observable.from(set);
+	set$.subscribe(
+	    v=> {
+	        console.log(v);
+	        },
+	    err=> {
+	        console.log(err);
+	    },
+	    complete=> {
+	        console.log('Completed');
+	    }
+	);
+	*/
+
+	var map = new Map([[1, 2], [3, 4], [5, 6]]);
+	var map$ = _Rx2.default.Observable.from(map);
+	map$.subscribe(function (v) {
 	    console.log(v);
-	}, function (err) {
-	    console.log(err);
-	}, function (complete) {
-	    console.log('Completed');
-	});
-
-	var posts = [{ title: 'Post One', body: "This is the body 1" }, { title: 'Post Two', body: "This is the body 2" }, { title: 'Post Three', body: "This is the body 3" }];
-
-	var postOutput = (0, _jquery2.default)('#posts');
-
-	var posts$ = _Rx2.default.Observable.from(posts);
-	posts$.subscribe(function (post) {
-	    console.log(post);
-	    (0, _jquery2.default)('#posts').append('<li><h3>' + post.title + '</h3><p>' + post.body + '</p></li>');
 	}, function (err) {
 	    console.log(err);
 	}, function (complete) {
