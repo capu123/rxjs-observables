@@ -56,29 +56,17 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// Observables from Events
-	var btn = (0, _jquery2.default)('#btn');
-	var input = (0, _jquery2.default)('#input');
-	var output = (0, _jquery2.default)('#output');
+	// Observables from Arrays
 
-	var btnStream$ = _Rx2.default.Observable.fromEvent(btn, 'click');
+	var numbers = [33, 44, 55, 66, 77];
 
-	btnStream$.subscribe(function (e) {
-	    console.log(e.target.innerHTML);
+	var numbers$ = _Rx2.default.Observable.from(numbers);
+
+	numbers$.subscribe(function (v) {
+	    console.log(v);
 	}, function (err) {
 	    console.log(err);
-	}, function () {
-	    console.log('Completed');
-	});
-
-	var inputStream$ = _Rx2.default.Observable.fromEvent(input, 'keyup');
-
-	inputStream$.subscribe(function (e) {
-	    console.log(e.currentTarget.value);
-	    output.append(e.target.value);
-	}, function (err) {
-	    console.log(err);
-	}, function () {
+	}, function (complete) {
 	    console.log('Completed');
 	});
 

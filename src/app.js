@@ -1,34 +1,20 @@
 import $ from 'jquery';
 import Rx from 'rxjs/Rx';
 
-// Observables from Events
-const btn = $('#btn');
-const input = $('#input');
-const output = $('#output');
+// Observables from Arrays
 
-const btnStream$ = Rx.Observable.fromEvent(btn, 'click');
+const numbers = [33,44,55,66,77];
 
-btnStream$.subscribe(
-    function (e) {
-        console.log(e.target.innerHTML);
+const numbers$ = Rx.Observable.from(numbers);
+
+numbers$.subscribe(
+    v=> {
+        console.log(v);
     },
-    function (err) {
+    err=> {
         console.log(err);
     },
-    function () {
+    complete=> {
         console.log('Completed');
-    });
-
-const inputStream$ = Rx.Observable.fromEvent(input, 'keyup');
-
-inputStream$.subscribe(
-    function (e) {
-        console.log(e.currentTarget.value);
-        output.append(e.target.value);
-    },
-    function (err) {
-        console.log(err);
-    },
-    function () {
-        console.log('Completed');
-    });
+    }
+);
