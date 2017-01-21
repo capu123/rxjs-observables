@@ -70,6 +70,20 @@
 	    console.log('Completed');
 	});
 
+	var posts = [{ title: 'Post One', body: "This is the body 1" }, { title: 'Post Two', body: "This is the body 2" }, { title: 'Post Three', body: "This is the body 3" }];
+
+	var postOutput = (0, _jquery2.default)('#posts');
+
+	var posts$ = _Rx2.default.Observable.from(posts);
+	posts$.subscribe(function (post) {
+	    console.log(post);
+	    (0, _jquery2.default)('#posts').append('<li><h3>' + post.title + '</h3><p>' + post.body + '</p></li>');
+	}, function (err) {
+	    console.log(err);
+	}, function (complete) {
+	    console.log('Completed');
+	});
+
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
