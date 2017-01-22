@@ -103,6 +103,7 @@ const sourse$ = Rx.Observable.fromPromise(myPromise);
 sourse$.subscribe(x=> console.log(x));
 */
 
+/*
 function getUser(username){
     return $.ajax({
         url: 'https://api.github.com/users/'+username,
@@ -122,4 +123,7 @@ inputSource$.subscribe(e=> {
             console.log(x);
         });
 });
+*/
+
+
 
