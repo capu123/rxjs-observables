@@ -20,7 +20,7 @@ numbers$.subscribe(
 );
 
 
-// Observables from complex Arrays
+// Observables from complex Arrays-------------------------
 const posts = [
     {title: 'Post One', body: "This is the body 1"},
     {title: 'Post Two', body: "This is the body 2"},

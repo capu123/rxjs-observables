@@ -37,7 +37,8 @@ source$.subscribe(
 
 //using timer( start, how many times) -------------------------------------------
 const source$ = Rx.Observable.range(0, 5);
-source$.subscribe(
+source$.pluck()
+.subscribe(
     v=> {
         console.log(v);
     },
